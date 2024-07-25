@@ -4,7 +4,6 @@ const openModal = () =>
 const closeModal = () => {
   document.getElementById("modal").classList.remove("active");
 };
-
 const tempClient = {
   name: "Eric",
   email: "raulpassos@gmail.com",
@@ -39,8 +38,19 @@ const createClient = (client) => {
   Linha 18: Está 'acrescentando' um objeto novo.
   Linha 16: Mandando novamente para o meu banco.*/
 
+const validFields = () => {
+  return document, getElementById("form").reportValidity();
+};
+//Interação com o layout
+const SaveClient = () => {
+  if (validFields()) {
+    console.log("cadastrando clientes");
+  }
+};
+
 //Eventos
 document
   .getElementById("cadastrarCliente")
   .addEventListener("click", openModal);
 document.getElementById("modalClose").addEventListener("click", closeModal);
+document.getElementById("click");
