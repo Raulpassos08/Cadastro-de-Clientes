@@ -39,12 +39,18 @@ const createClient = (client) => {
   Linha 16: Mandando novamente para o meu banco.*/
 
 const validFields = () => {
-  return document, getElementById("form").reportValidity();
+  return document.getElementById("form").reportValidity();
 };
 //Interação com o layout
-const SaveClient = () => {
+const saveClient = () => {
   if (validFields()) {
-    console.log("cadastrando clientes");
+    const client = {
+      nome: document.getElementById("nome").value,
+      email: document.getElementById("email").value,
+      celular: document.getElementById("celular").value,
+      cidade: document.getElementById("cidade").value,
+    };
+    createClient(client);
   }
 };
 
@@ -53,4 +59,4 @@ document
   .getElementById("cadastrarCliente")
   .addEventListener("click", openModal);
 document.getElementById("modalClose").addEventListener("click", closeModal);
-document.getElementById("click");
+document.getElementById("salvar").addEventListener("click", saveClient);
