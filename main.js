@@ -3,9 +3,10 @@ const openModal = () =>
 
 const closeModal = () => {
   document.getElementById("modal").classList.remove("active");
+  clearFields();
 };
 const tempClient = {
-  name: "Eric",
+  name: "raul",
   email: "raulpassos@gmail.com",
   celular: "85999999999",
   cidade: "Fortaleza",
@@ -42,6 +43,12 @@ const validFields = () => {
   return document.getElementById("form").reportValidity();
 };
 //Interação com o layout
+
+const clearFields = () => {
+  const fields = document.querySelectorAll(".modal-field");
+  fields.forEach((field) => (field.value = ""));
+};
+
 const saveClient = () => {
   if (validFields()) {
     const client = {
@@ -51,6 +58,7 @@ const saveClient = () => {
       cidade: document.getElementById("cidade").value,
     };
     createClient(client);
+    closeModal();
   }
 };
 
@@ -60,3 +68,4 @@ document
   .addEventListener("click", openModal);
 document.getElementById("modalClose").addEventListener("click", closeModal);
 document.getElementById("salvar").addEventListener("click", saveClient);
+document.getElementById("cancelar").addEventListener("click", closeModal);
